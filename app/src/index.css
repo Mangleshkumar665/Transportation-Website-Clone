@@ -267,17 +267,25 @@ nav {
   /* border: 2px solid red; */
 }
 
-.carousel-caption {
-  color:#12316b;
+.layer3-img .carousel-inner{
+  width: 40vw;
+  
+  
 
-  position: absolute !important;
-  top: -100px  !important;
-  right: 1500px !important;
+}
+
+.p2:hover ~ #img1{
+
+  display: none !important;
+  border: 2px solid red;
+
 }
 
 
-.carousel-caption h3{
-  
-  /* font-size: 100%; */
+#img1{
+  /* display: none !important; */
+}
 
+#img2{
+  /* display: none !important; */
 }
