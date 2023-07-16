@@ -1,8 +1,28 @@
+import { useEffect } from "react";
 import i1 from "../../assets/images/layer3/1.webp"
 import i2 from "../../assets/images/layer3/2.webp"
+import { useState } from "react";
 
 
 const LayerThree = () => {
+    let images = [i1, i2]
+
+    let carouselTexts = ["Two groundbreaking solutions unveiled to boost your ROI", "GFI Optima: AI-powered benchmarking tool"]
+
+
+
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
+        }, 2000);
+
+        return () => clearInterval(interval);
+    }, [images.length]);
+
+
+
     return (
         <div className="layer3 row">
             <div className=" layer3-text col">
@@ -10,18 +30,18 @@ const LayerThree = () => {
                     unveiled to boost your ROI</h2>
 
 
-                <h3 className="p1">D&D IQ: Advanced Detention and Demurrage Tracker</h3>
 
 
-                <h3 className="p2">GFI Optima: AI-powered benchmarking tool</h3>
+             
+
+                <div className="carousel">
+                    {carouselTexts.map((text, index) => (
+                        <h3 key={index} className={`carousel-slide ${index === currentIndex ? 'active' : ''}  p1 `} > {text}</h3>
+                    ))}
 
 
+                </div>
 
-
-                
-                <img src={i1} id="img1" className="d-block w-100 img1" alt="..." />
-                
-                <img src={i2} id="img2" className="d-block w-100" alt="..." />
 
 
 
@@ -31,14 +51,29 @@ const LayerThree = () => {
 
             <div className="layer3-img col ">
 
-                
-   
+                <div className="carousel">
+                    {images.map((imageUrl, index) => (
+
+
+                        <div key={index}>
+                            <img
+                                key={index}
+                                src={imageUrl}
+                                alt="carousel-slide"
+                                className={`carousel-slide ${index === currentIndex ? 'active' : ''}`}
+                            />
 
 
 
 
+                        </div>
+
+                    ))}
 
 
+
+
+                </div>
 
             </div>
         </div>

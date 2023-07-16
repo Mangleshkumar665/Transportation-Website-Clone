@@ -274,18 +274,39 @@ nav {
 
 }
 
-.p2:hover ~ #img1{
 
-  display: none !important;
-  border: 2px solid red;
 
+
+
+
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.carousel-slide.active {
+  
+  opacity: 1;
+  transform: translateX(0);
 }
 
 
-#img1{
-  /* display: none !important; */
-}
-
-#img2{
-  /* display: none !important; */
+.carousel-text{
+  z-index: 1;
+  position: relative;
+  
+  
 }
